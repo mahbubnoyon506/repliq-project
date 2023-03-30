@@ -1,13 +1,15 @@
-import { RouterProvider } from 'react-router-dom';
+import { RouterProvider } from "react-router-dom";
 import routes from "./routes/routes";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
+import ProductProvider from "./context/ProductProvider";
 
 function App() {
-
   return (
     <>
-      <RouterProvider router={routes}></RouterProvider>
-      <ToastContainer />
+      <ProductProvider>
+        <RouterProvider router={routes}></RouterProvider>
+        <ToastContainer />
+      </ProductProvider>
     </>
   );
 }
