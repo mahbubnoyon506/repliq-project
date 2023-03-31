@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaEnvelope, FaPhoneAlt, FaRegHeart } from 'react-icons/fa'
 import { MdClose, MdLocationOn, MdMenu, MdOutlineDashboard } from 'react-icons/md'
-import { IoLogoUsd } from 'react-icons/io'
+import { TbCurrencyTaka } from 'react-icons/tb'
 import { BsPersonCircle } from 'react-icons/bs'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { FiLogIn, FiLogOut } from 'react-icons/fi'
@@ -49,9 +49,9 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className='md:flex'>
-                    <p className='md:font-semibold hover:text-primary mr-2 flex items-center'><IoLogoUsd color='#ff1e00' />BDT</p>
+                    <p className='md:font-semibold hover:text-primary mr-2 flex items-center'><TbCurrencyTaka size={25} color='#ff1e00' />BDT</p>
                     {
-                        !user ? <Link className='md:font-semibold hover:text-primary mr-2 flex items-center' to='/signin'> <FiLogIn className='mr-1' color='#ff1e00' />Sign In</Link> :
+                        !user ? <Link className='md:font-semibold hover:text-primary mr-2 flex items-center' to='/signin'> <FiLogIn className='mr-1' size={20} color='#ff1e00' />Sign In</Link> :
                             <div>
                                 <button
                                     id="basic-button"

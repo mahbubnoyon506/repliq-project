@@ -1,12 +1,19 @@
-import React from "react";
-import Button from '@mui/material/Button';
-import { FaBeer } from 'react-icons/fa';
+import React, { useEffect } from "react";
+import Button from "@mui/material/Button";
+import { FaBeer } from "react-icons/fa";
+import TopProducts from "../../components/category/TopProducts/TopProducts";
+import HotDeals from "../../components/category/HotDeals";
+import NewProducts from "../../components/category/NewProducts/NewProducts";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-
+      <TopProducts />
+      <HotDeals />
+      <NewProducts />
     </div>
   );
 };
