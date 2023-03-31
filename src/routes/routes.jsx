@@ -13,6 +13,7 @@ import Checkout from "../components/Products/Checkout";
 import Dashboard from "../pages/dashboard/Dashboard";
 import AdminsDashboard from "../pages/dashboard/AdminDashboard/AdminsDashboard";
 import Orders from "../pages/dashboard/AdminDashboard/Orders";
+import Customers from "../pages/dashboard/AdminDashboard/Customers";
 
 const routes = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const routes = createBrowserRouter([
       {
         path: "orders",
         element: <Orders />,
+      },
+      {
+        path: 'customers',
+        element: <Customers /> 
       },
       {},
     ],

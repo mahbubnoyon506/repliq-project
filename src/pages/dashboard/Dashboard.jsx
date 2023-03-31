@@ -58,7 +58,7 @@ function Dashboard(props) {
                     <NavLink 
                     style={menuLinkStyles} 
                     onClick={handleClose}
-                    className='flex font-semibold' to='/dashboard/customers'> <FaUsers className='mr-2' size={20} /> Customers</NavLink>
+                    className='flex font-semibold' to='customers'> <FaUsers className='mr-2' size={20} /> Customers</NavLink>
                 </ListItem>
                 <ListItem>
                     <NavLink 
