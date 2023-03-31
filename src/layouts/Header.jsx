@@ -83,7 +83,7 @@ const Header = () => {
                                         'aria-labelledby': 'basic-button',
                                     }}
                                 >
-                                    <Link to='/dashboard'><MenuItem onClick={handleClose}> <MdOutlineDashboard className='mr-2' size={20} /> Dashboard</MenuItem></Link>
+                                    <Link to='/admin/dashboard'><MenuItem onClick={handleClose}> <MdOutlineDashboard className='mr-2' size={20} /> Dashboard</MenuItem></Link>
                                     <Link to=''><MenuItem onClick={handleClose}> <BsPersonCircle className='mr-2' size={20} /> Profile</MenuItem></Link>
                                     <MenuItem onClick={() => { handleClose(); logout(); }}> <FiLogOut className='mr-2' size={20} /> Logout</MenuItem>
                                 </Menu>

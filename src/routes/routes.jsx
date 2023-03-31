@@ -10,6 +10,8 @@ import Product from "../components/Products/Product";
 import Cart from "../components/Products/Cart";
 import Wishlist from "../components/Products/Wishlist";
 import Checkout from "../components/Products/Checkout";
+import Dashboard from "../pages/dashboard/Dashboard";
+import AdminsDashboard from "../pages/dashboard/AdminDashboard/AdminsDashboard";
 
 const routes = createBrowserRouter([
   {
@@ -52,5 +54,15 @@ const routes = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '/admin',
+    element: <Dashboard />,
+    children: [
+        {
+           path: 'dashboard',
+           element: <AdminsDashboard /> 
+        }
+    ]
+  }
 ]);
 export default routes;
