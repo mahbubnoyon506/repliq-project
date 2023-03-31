@@ -14,6 +14,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import AdminsDashboard from "../pages/dashboard/AdminDashboard/AdminsDashboard";
 import Orders from "../pages/dashboard/AdminDashboard/Orders";
 import Customers from "../pages/dashboard/AdminDashboard/Customers";
+import Products from "../pages/dashboard/AdminDashboard/Products";
 
 const routes = createBrowserRouter([
   {
@@ -69,10 +70,13 @@ const routes = createBrowserRouter([
         element: <Orders />,
       },
       {
-        path: 'customers',
-        element: <Customers /> 
+        path: "customers",
+        element: <Customers />,
       },
-      {},
+      {
+        path: "products",
+        element: <Products />,
+      },
     ],
   },
 ]);

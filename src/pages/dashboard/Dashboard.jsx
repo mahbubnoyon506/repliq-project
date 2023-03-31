@@ -64,7 +64,7 @@ function Dashboard(props) {
                     <NavLink 
                     style={menuLinkStyles} 
                     onClick={handleClose}
-                    className='flex font-semibold' to='/dashboard/products'> <BsMinecartLoaded className='mr-2' size={20} /> Products</NavLink>
+                    className='flex font-semibold' to='products'> <BsMinecartLoaded className='mr-2' size={20} /> Products</NavLink>
                 </ListItem>
             </List>
             <div style={{height: '50vh'}}></div>
