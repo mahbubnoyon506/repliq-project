@@ -12,6 +12,7 @@ import Wishlist from "../components/Products/Wishlist";
 import Checkout from "../components/Products/Checkout";
 import Dashboard from "../pages/dashboard/Dashboard";
 import AdminsDashboard from "../pages/dashboard/AdminDashboard/AdminsDashboard";
+import Orders from "../pages/dashboard/AdminDashboard/Orders";
 
 const routes = createBrowserRouter([
   {
@@ -55,14 +56,19 @@ const routes = createBrowserRouter([
     ],
   },
   {
-    path: '/admin',
+    path: "/admin",
     element: <Dashboard />,
     children: [
-        {
-           path: 'dashboard',
-           element: <AdminsDashboard /> 
-        }
-    ]
-  }
+      {
+        path: "dashboard",
+        element: <AdminsDashboard />,
+      },
+      {
+        path: "orders",
+        element: <Orders />,
+      },
+      {},
+    ],
+  },
 ]);
 export default routes;
