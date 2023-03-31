@@ -3,11 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { toast } from "react-toastify";
+import toast from 'react-hot-toast';
 import useToken from "../hooks/useToken";
 import SocialLogin from "./SocialLogin";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import auth from "../firebase.init";
+import CoponentLoader from "../components/loader/CoponentLoader";
 
 const Signin = () => {
   const {
@@ -46,7 +47,7 @@ const Signin = () => {
   }, [token, navigate, from]);
 
   if (createLoading || loading) {
-    return <p>Loading...</p>;
+    return <CoponentLoader />;
   }
   if (createError || error) {
     toast.error(error?.message);

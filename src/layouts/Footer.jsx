@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import React from "react";
 
 const Footer = () => {
+  const year = new Date().getFullYear()
   return (
     <div>
       <footer className="text-center lg:text-left bg-gray-100 text-gray-600 ">
@@ -311,7 +312,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center p-6 bg-[#1E1F29] text-base-100">
-          <span>© 2021 Copyright </span>
+          <span>© {year} Copyright </span>
           <a className="text-gray-600 font-semibold" href="#">
             Electro
           </a>

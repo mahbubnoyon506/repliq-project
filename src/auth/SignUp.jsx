@@ -3,10 +3,11 @@ import { useForm } from 'react-hook-form';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 import useToken from '../hooks/useToken';
 import SocialLogin from './SocialLogin';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import CoponentLoader from '../components/loader/CoponentLoader';
 
 
 const SignUp = () => {
@@ -50,7 +51,7 @@ const SignUp = () => {
         }
     }, [user, navigate, from])
     if (loading || updating) {
-        return <p>Loading...</p>
+        return <CoponentLoader />
 
     };
     if (error || UpdateProfileError) {
