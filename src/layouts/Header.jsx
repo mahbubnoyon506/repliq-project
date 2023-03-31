@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { FaEnvelope, FaPhoneAlt, FaRegHeart } from 'react-icons/fa'
 import { MdClose, MdLocationOn, MdMenu, MdOutlineDashboard } from 'react-icons/md'
-import { TbCurrencyTaka } from 'react-icons/tb'
+import { IoLogoUsd } from 'react-icons/io'
 import { BsPersonCircle } from 'react-icons/bs'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { FiLogIn, FiLogOut } from 'react-icons/fi'
 import { Badge, Button, Menu, MenuItem } from '@mui/material';
-// import OpenCart from '../components/Products/OpenCart'
-// import OpenWishlist from '../components/Products/Wishlist'
+import OpenCart from '../components/Products/OpenCart'
+import OpenWishlist from '../components/Products/Wishlist'
 import { Link, NavLink } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-// import { signOut } from 'firebase/auth';
-// import auth from '../firebase.init';
-// import { useProducts } from '../context/ProductProvider';
+import { signOut } from 'firebase/auth';
+import auth from '../firebase.init';
+import { useProducts } from '../context/ProductProvider';
+
 
 const Header = () => {
-    // const [user] = useAuthState(auth)
-    const user = ''
+    const [user] = useAuthState(auth)
     const [openCart, setOpenCart] = useState(false);
     const [openMenu, setOpenMenu] = useState(false)
-    const [anchorEl, setAnchorEl] = useState(null);
+    const [anchorEl, setAnchorEl] = React.useState(null);
 
     const open = Boolean(anchorEl);
     const handleClickAccount = (event) => {
@@ -32,12 +32,22 @@ const Header = () => {
     const handleClick = (event) => {
         setOpenCart(event.currentTarget);
     };
+
+    const logout = () => {
+        signOut(auth);
+    };
+
+
+    const { state: { wishlist, loading, error } } = useProducts();
+    const { state: { cart } } = useProducts();
+
     const menuItems = [
         { "category": "laptop" },
         { "category": "smartphone" },
         { "category": "camera" },
         { "category": "accessories" },
     ]
+
     return (
         <div className='md:sticky top-0 z-50 relative'>
             <div className='text-base-100 bg-[#1E1F29] py-2 px-5 md:px-10 flex justify-between'>
@@ -49,9 +59,9 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className='md:flex'>
-                    <p className='md:font-semibold hover:text-primary mr-2 flex items-center'><TbCurrencyTaka size={25} color='#ff1e00' />BDT</p>
+                    <p className='md:font-semibold hover:text-primary mr-2 flex items-center'><IoLogoUsd color='#ff1e00' />BDT</p>
                     {
-                        !user ? <Link className='md:font-semibold hover:text-primary mr-2 flex items-center' to='/signin'> <FiLogIn className='mr-1' size={20} color='#ff1e00' />Sign In</Link> :
+                        !user ? <Link className='md:font-semibold hover:text-primary mr-2 flex items-center' to='/signin'> <FiLogIn className='mr-1' color='#ff1e00' />Sign In</Link> :
                             <div>
                                 <button
                                     id="basic-button"
@@ -75,11 +85,7 @@ const Header = () => {
                                 >
                                     <Link to='/dashboard'><MenuItem onClick={handleClose}> <MdOutlineDashboard className='mr-2' size={20} /> Dashboard</MenuItem></Link>
                                     <Link to=''><MenuItem onClick={handleClose}> <BsPersonCircle className='mr-2' size={20} /> Profile</MenuItem></Link>
-                                    <MenuItem 
-                                    onClick={() => { 
-                                        handleClose(); 
-                                        // logout(); 
-                                        }}> <FiLogOut className='mr-2' size={20} /> Logout</MenuItem>
+                                    <MenuItem onClick={() => { handleClose(); logout(); }}> <FiLogOut className='mr-2' size={20} /> Logout</MenuItem>
                                 </Menu>
                             </div>
                     }
@@ -111,9 +117,9 @@ const Header = () => {
 
                         >
                             <div className='flex justify-center'>
-                                {/* <Badge badgeContent={wishlist.length} color="primary">
+                                <Badge badgeContent={wishlist.length} color="primary">
                                     <FaRegHeart className='mx-auto' size={30} color='#ff1e00' />
-                                </Badge> */}
+                                </Badge>
                             </div>
                             <p>Your Wishlist</p>
                         </Link>
@@ -123,19 +129,19 @@ const Header = () => {
                             onClick={handleClick}
                         >
                             <div className='flex justify-center'>
-                                {/* <Badge badgeContent={cart.length} color="primary">
+                                <Badge badgeContent={cart.length} color="primary">
                                     <AiOutlineShoppingCart className='mx-auto' size={30} color='#ff1e00' />
-                                </Badge> */}
+                                </Badge>
                             </div>
                             <p>Your Cart</p>
                         </button>
-                        {/* {openCart &&
+                        {openCart &&
                             <OpenCart
                                 className=""
                                 openCart={openCart}
                                 setOpenCart={setOpenCart}
                             ></OpenCart>
-                        } */}
+                        }
                     </div>
                 </div>
             </div>
@@ -154,3 +160,5 @@ const Header = () => {
 };
 
 export default Header;
+
+
