@@ -45,11 +45,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "checkout",
-        element: (
-          <RequiredAuth>
-            <Checkout />
-          </RequiredAuth>
-        ),
+        element: <Checkout />,
       },
       {
         path: "/signin",
