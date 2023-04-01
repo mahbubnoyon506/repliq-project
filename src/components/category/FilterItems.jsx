@@ -26,9 +26,9 @@ const Laptops = ({ category }) => {
     const { dispatch } = useProducts()
     const { state: { products, loading, error } } = useProducts();
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [])
+    // useEffect(() => {
+    //     window.scrollTo(0, 0);
+    // }, [])
 
     useEffect(() => {
         setFilterItems(products.filter(item => item.category == category))
@@ -58,7 +58,7 @@ const Laptops = ({ category }) => {
                                     dispatch({ type: ADD_TO_WISHLIST, payload: product })}><FaRegHeart className='mx-auto text-neutral hover:text-[#ff1e00]' size={20} /></Button>
                             </Tooltip>
                             <Tooltip title="Details View" placement="top">
-                                <Link to={`/product/${product._id}`}><Button><BiDetail className='mx-auto text-neutral hover:text-[#ff1e00]' size={20} /></Button></Link>
+                                <Link to={`/item/${product._id}`}><Button><BiDetail className='mx-auto text-neutral hover:text-[#ff1e00]' size={20} /></Button></Link>
                             </Tooltip>
                             <Tooltip title="Add to Cart" placement="top">
                                 <Button onClick={() =>

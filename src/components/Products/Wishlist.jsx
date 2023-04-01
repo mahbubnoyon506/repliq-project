@@ -41,7 +41,7 @@ const Wishlist = () => {
                         <div className='flex justify-center'> <Rating sx={{ color: '#ff1e00', fontSize: '15px' }} name="half-rating" defaultValue={2.5} precision={0.5} /></div>
                         <div className='flex justify-center w-48 mx-auto py-5'>
                             <Tooltip title="Details View" placement="top">
-                                <Link to={`/product/${product._id}`}><Button><BiDetail className='mx-auto text-neutral hover:text-[#ff1e00]' size={20} /></Button></Link>
+                                <Link to={`/item/${product._id}`}><Button><BiDetail className='mx-auto text-neutral hover:text-[#ff1e00]' size={20} /></Button></Link>
                             </Tooltip>
                             <Tooltip title="Add to Cart" placement="top">
                                 <Button onClick={() => 

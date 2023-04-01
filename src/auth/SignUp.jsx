@@ -21,7 +21,6 @@ const SignUp = () => {
 
     // for jwt
     const [token] = useToken(user);
-
     // for jwt
 
 
@@ -135,7 +134,7 @@ const SignUp = () => {
                         </div>
                         <p className="text-sm text-center mt-4 font-medium leading-none text-gray-500">
                             Already have account?{" "}
-                            <Link to={'/Signin'} className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
+                            <Link to={'/signin'} className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
                                 SignIn here
                             </Link>
                         </p>

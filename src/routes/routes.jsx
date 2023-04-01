@@ -15,6 +15,7 @@ import AdminsDashboard from "../pages/dashboard/AdminDashboard/AdminsDashboard";
 import Orders from "../pages/dashboard/AdminDashboard/Orders";
 import Customers from "../pages/dashboard/AdminDashboard/Customers";
 import Products from "../pages/dashboard/AdminDashboard/Products";
+import RequiredAuth from "../auth/RequiredAuth";
 
 const routes = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const routes = createBrowserRouter([
         element: <FilterPage />,
       },
       {
-        path: "product/:id",
+        path: "item/:id",
         element: <Product />,
       },
       {
@@ -44,9 +45,12 @@ const routes = createBrowserRouter([
       },
       {
         path: "checkout",
-        element: <Checkout />,
+        element: (
+          <RequiredAuth>
+            <Checkout />
+          </RequiredAuth>
+        ),
       },
-      {},
       {
         path: "/signin",
         element: <SignIn />,
@@ -59,7 +63,11 @@ const routes = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <Dashboard />,
+    element: (
+      <RequiredAuth>
+        <Dashboard />
+      </RequiredAuth>
+    ),
     children: [
       {
         path: "dashboard",

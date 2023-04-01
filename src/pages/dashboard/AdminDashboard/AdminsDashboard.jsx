@@ -74,6 +74,7 @@ const AdminsDashboard = () => {
                                     textTransform: 'capitalize',
                                     fontSize: '1.1rem',
                                     fontWeight: "600"
+                                    
                                 }}>{sales.title}</Typography>
                             </Stack>
                             <Box>
